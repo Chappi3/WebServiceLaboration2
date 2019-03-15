@@ -9,12 +9,12 @@ public interface WhiskeyService {
     Whiskey findById(long id);
     Whiskey findByName(String name);
 
-    void saveWhiskey();
-    void updateWhiskey();
+    void saveWhiskey(Whiskey whiskey);
+    void updateWhiskey(Whiskey whiskey);
     void deleteWhiskeyById(long id);
-    void deleteAllWhiskeys();
+    void deleteAllWhiskies();
 
     boolean isWhiskeyExist(Whiskey whiskey);
 
-    List<Whiskey> findAllWhiskeys();
+    List<Whiskey> findAllWhiskies();
 }
