@@ -13,6 +13,10 @@ public class WhiskeyServiceImpl implements WhiskeyService {
     private static final AtomicLong counter = new AtomicLong();
     private static List<Whiskey> whiskies;
 
+    static {
+        whiskies = populateDummyWhiskies();
+    }
+
     @Override
     public Whiskey findById(long id) {
         for (Whiskey whiskey : whiskies) {
