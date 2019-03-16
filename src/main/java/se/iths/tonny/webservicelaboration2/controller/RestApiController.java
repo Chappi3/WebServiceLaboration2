@@ -36,7 +36,7 @@ public class RestApiController {
 
     // -------------------- Retrieve a single whiskey --------------------
 
-    @RequestMapping(value = "/whiskey/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/whiskies/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getWhiskey(@PathVariable("id") long id) {
         logger.info("Fetching Whiskey with id {}", id);
         Whiskey whiskey = whiskeyService.findById(id);
@@ -50,7 +50,7 @@ public class RestApiController {
 
     // -------------------- Create a whiskey --------------------
 
-    @RequestMapping(value = "/whiskey/", method = RequestMethod.POST)
+    @RequestMapping(value = "/whiskies/", method = RequestMethod.POST)
     public ResponseEntity<?> createWhiskey(@RequestBody Whiskey whiskey, UriComponentsBuilder ucBuilder) {
         logger.info("Creating whiskey : {}", whiskey);
 
@@ -68,7 +68,7 @@ public class RestApiController {
 
     // -------------------- Update a whiskey --------------------
 
-    @RequestMapping(value = "/whiskey/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/whiskies/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateWhiskey(@PathVariable("id") long id, @RequestBody Whiskey whiskey) {
         logger.info("Updating whiskey with id {}", id);
 
@@ -90,7 +90,7 @@ public class RestApiController {
 
     // -------------------- Delete a whiskey --------------------
 
-    @RequestMapping(value = "/whiskey/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/whiskies/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteWhiskey(@PathVariable("id") long id) {
         logger.info("Fetching & deleting whiskey with id {}", id);
 

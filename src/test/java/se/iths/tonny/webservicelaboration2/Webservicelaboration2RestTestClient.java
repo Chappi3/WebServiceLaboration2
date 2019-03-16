@@ -21,7 +21,7 @@ public class Webservicelaboration2RestTestClient {
 
         if (whiskiesMap != null) {
             for (LinkedHashMap<String, Object> map : whiskiesMap) {
-                System.out.println("Whiskey : id="+map.get("id")+", Name="+map.get("name")+", Age="+map.get("age")+", Salary="+map.get("salary"));
+                System.out.println("Whiskey : id="+map.get("id")+", Name="+map.get("name")+", Age="+map.get("age")+", Price="+map.get("price"));
             }
         }
         else {
@@ -33,7 +33,7 @@ public class Webservicelaboration2RestTestClient {
     private static void getWhiskey() {
         System.out.println("---------- Testing getWhiskey API ----------");
         RestTemplate restTemplate = new RestTemplate();
-        Whiskey whiskey = restTemplate.getForObject(REST_SERVICE_URI+"/whiskey/1", Whiskey.class);
+        Whiskey whiskey = restTemplate.getForObject(REST_SERVICE_URI+"/whiskies/1", Whiskey.class);
         System.out.println(whiskey);
     }
 
@@ -42,7 +42,7 @@ public class Webservicelaboration2RestTestClient {
         System.out.println("---------- Testing createWhiskey API ----------");
         RestTemplate restTemplate = new RestTemplate();
         Whiskey whiskey = new Whiskey(0, "Deveron", 12, 745.33);
-        URI uri = restTemplate.postForLocation(REST_SERVICE_URI+"/whiskey/", whiskey, Whiskey.class);
+        URI uri = restTemplate.postForLocation(REST_SERVICE_URI+"/whiskies/", whiskey, Whiskey.class);
         System.out.println("Location : "+uri.toASCIIString());
     }
 
@@ -51,7 +51,7 @@ public class Webservicelaboration2RestTestClient {
         System.out.println("---------- Testing updateWhiskey API ----------");
         RestTemplate restTemplate = new RestTemplate();
         Whiskey whiskey = new Whiskey(1, "Mackmyra", 12, 575.57);
-        restTemplate.put(REST_SERVICE_URI+"/whiskey/1", whiskey);
+        restTemplate.put(REST_SERVICE_URI+"/whiskies/1", whiskey);
         System.out.println(whiskey);
     }
 
@@ -59,7 +59,7 @@ public class Webservicelaboration2RestTestClient {
     private static void deleteWhiskey() {
         System.out.println("---------- Testing deleteWhiskey API ----------");
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.delete(REST_SERVICE_URI+"/whiskey/3");
+        restTemplate.delete(REST_SERVICE_URI+"/whiskies/3");
     }
 
     // DELETE
